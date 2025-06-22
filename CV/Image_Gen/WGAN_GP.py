@@ -11,7 +11,7 @@ class ResNetBlock(nn.Module):
             self.skip = nn.ConvTranspose2d(in_channels, out_channels, kernel_size=4, stride=stride, padding=1, bias=False)
         self.gn1 = nn.BatchNorm2d(out_channels)
         self.gn2 = nn.BatchNorm2d(out_channels)
-        self.gn3 = nn.BatchNorm2d(out_channels, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        self.gn3 = nn.BatchNorm2d(out_channels)
     def forward(self, x):
         x1 = F.silu(self.gn1(self.conv1(x)))
         x1 = F.silu(self.gn2(self.conv2(x1)))
