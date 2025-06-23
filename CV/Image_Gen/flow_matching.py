@@ -21,7 +21,7 @@ class ResNetBlock(nn.Module):
         self.bn1 = nn.GroupNorm(g, out_channels)
         self.bn2 = nn.GroupNorm(g, out_channels)
 
-        self.alpha = nn.Parameter(torch.tensor([0.0]))
+        # self.alpha = nn.Parameter(torch.tensor([0.0]))
 
         self.gamma_mlp = nn.Sequential(
             nn.Linear(128, 128),
@@ -43,7 +43,7 @@ class ResNetBlock(nn.Module):
         # x1 = x1 * (1 + gamma) + beta
         x1 = F.silu(self.bn2(self.conv2(x1)))
         # x1 = x1 * (1 + gamma) + beta
-        x = self.skip(x) * self.alpha + x1
+        x = self.skip(x) + x1
         x = x * (1 + gamma) + beta
         return x
     
