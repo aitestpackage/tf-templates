@@ -1,10 +1,10 @@
 # !pip install xgboost
 from xgboost import XGBClassifier
-# read data
+# read resources
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 data = load_iris()
-X_train, X_test, y_train, y_test = train_test_split(data['data'], data['target'], test_size=.2)
+X_train, X_test, y_train, y_test = train_test_split(data['resources'], data['target'], test_size=.2)
 # create model instance
 bst = XGBClassifier(
     n_estimators=2,
@@ -32,15 +32,15 @@ preds = bst.predict(X_test)
 # “reg:logistic” –logistic regression
 # “binary:logistic” –logistic regression for binary classification, output probability
 # “binary:logitraw” –logistic regression for binary classification, output score before logistic transformation
-# “count:poisson” –poisson regression for count data, output mean of poisson distribution
+# “count:poisson” –poisson regression for count resources, output mean of poisson distribution
 # max_delta_step is set to 0.7 by default in poisson regression (used to safeguard optimization)
 # “multi:softmax” –set XGBoost to do multiclass classification using the softmax objective, you also need to set num_class(number of classes)
-# “multi:softprob” –same as softmax, but output a vector of ndata * nclass, which can be further reshaped to ndata, nclass matrix. The result contains predicted probability of each data point belonging to each class.
+# “multi:softprob” –same as softmax, but output a vector of ndata * nclass, which can be further reshaped to ndata, nclass matrix. The result contains predicted probability of each resources point belonging to each class.
 # “rank:pairwise” –set XGBoost to do ranking task by minimizing the pairwise loss
 # base_score [ default=0.5 ]
 # the initial prediction score of all instances, global bias
 # eval_metric [ default according to objective ]
-# evaluation metrics for validation data, a default metric will be assigned according to objective( rmse for regression, and error for classification, mean average precision for ranking )
+# evaluation metrics for validation resources, a default metric will be assigned according to objective( rmse for regression, and error for classification, mean average precision for ranking )
 # User can add multiple evaluation metrics, for python user, remember to pass the metrics in as list of parameters pairs instead of map, so that latter ‘eval_metric’ won’t override previous one
 # The choices are listed below:
 # “rmse”: root mean square error

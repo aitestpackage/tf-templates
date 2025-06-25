@@ -1,7 +1,7 @@
 # !pip install tsai
 from tsai.data.preparation import *
 ts = get_forecasting_time_series('Sunspots')
-if ts is not None: # This is to prevent a test fail when the data server is not available
+if ts is not None: # This is to prevent a test fail when the resources server is not available
     X, y = SlidingWindowSplitter(60, horizon=1)(ts)
     X, y = X.astype('float32'), y.astype('float32')
     splits = TSSplitter(235)(y)

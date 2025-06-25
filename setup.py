@@ -7,9 +7,10 @@ setup(
     install_requires=["requests"],
     author="YourName",
     description="Notebook runtime diagnostics logger",
-    long_description="A discreet communication widget for Jupyter notebooks, disguised as a system logger.",
+    long_description="Some templates for tensorflow.",
     long_description_content_type="text/markdown",
     url="https://github.com/aitestpackage/tf-templates/new/main",
+    include_package_data=True,  # <- REQUIRED
     classifiers=[
         "Programming Language :: Python :: 3",
         "Framework :: Jupyter",
