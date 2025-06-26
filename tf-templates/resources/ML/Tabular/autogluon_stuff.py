@@ -11,7 +11,7 @@ train_data.head()
 label = 'class'
 print(f"Unique classes: {list(train_data[label].unique())}")
 
-predictor = TabularPredictor(label=label).fit(train_data)
+predictor = TabularPredictor(label=label).fit(train_data, time_limit=200)
 
 test_data = TabularDataset('https://autogluon.s3.amazonaws.com/datasets/Inc/test.csv')
 test_data.head()
