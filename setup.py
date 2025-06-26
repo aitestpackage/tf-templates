@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="tf-templates",
-    version="0.2",
+    name="tf_templates",
+    version="0.25",
     packages=find_packages(),
     install_requires=["requests"],
     author="YourName",
