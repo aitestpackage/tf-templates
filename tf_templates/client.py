@@ -10,6 +10,7 @@ def send_message(user, msg):
     except Exception as e:
         print(f"[Logger] Send failed: {e}")
 
+
 def fetch_messages():
     try:
         r = requests.get(f"{SERVER_URL}/recv", timeout=3)
