@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="tf_templates",
-    version="0.2",
+    version="0.25",
     packages=find_packages(),
     install_requires=["requests"],
     author="YourName",
